@@ -35,9 +35,11 @@ echo "xinput set-prop \"${installedTouch}\" \"Coordinate Transformation Matrix\"
 # Rotacionar Touchpad
 bash /tmp/rotacionatouch.sh
 # Remover script temporario
-cat /tmp/rotacionatouch.sh
 rm /tmp/rotacionatouch.sh
+echo "Touch ok"
 # Ler nome do monitor ativo
 activeDisplay=$(xrandr | grep " connected " | awk '{ print$1 }')
 # Rotacionar tela
 xrandr --output $(echo $activeDisplay) --mode 1920x1080 --rotate ${rotscreen}
+echo "Tela ok"
+echo "done"
