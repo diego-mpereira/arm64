@@ -1,5 +1,6 @@
 #!/bin/bash
 ## Script de rotação de tela e touchscreen para linux.
+## O script detecta configurações de tela e touchscreen, realiza configurações de rotação e insere em um script de inicialização.
 ## git @diego-mpereira VideoSoft
 echo -n "Orientação de rotação de tela desejada: 
 1-Right 
@@ -30,6 +31,11 @@ fi
 # Ler modelo do TouchPad Instalado
 installedTouch=$(xinput list --name-only | grep "Touch" | head -n 1)
 ##installedTouch=\"${installedTouch}\"
+echo "Section \"InputClass\"" >>/usr/share/X11/xorg.conf.d/40-libinput.conf
+echo " Identifier \"calibration\"" >>/usr/share/X11/xorg.conf.d/40-libinput.conf
+echo "  MatchProduct \"installedTouch\"" >>/usr/share/X11/xorg.conf.d/40-libinput.conf
+echo "  Option \"TransformationMatrix\" ${matrix}" >>/usr/share/X11/xorg.conf.d/40-libinput.conf
+echo "EndSection" >>/usr/share/X11/xorg.conf.d/40-libinput.conf
 # Criar script temporario para Rotacionar Touchpad
 echo "xinput set-prop \"${installedTouch}\" \"Coordinate Transformation Matrix\" ${matrix}" >>/tmp/rotacionatouch.sh
 echo "xinput set-prop \"${installedTouch}\" \"Coordinate Transformation Matrix\" ${matrix}" >>/usr/share/X11/xorg.d/touchRotate.conf
