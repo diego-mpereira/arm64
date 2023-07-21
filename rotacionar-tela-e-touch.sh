@@ -32,6 +32,7 @@ installedTouch=$(xinput list --name-only | grep "Touch" | head -n 1)
 ##installedTouch=\"${installedTouch}\"
 # Criar script temporario para Rotacionar Touchpad
 echo "xinput set-prop \"${installedTouch}\" \"Coordinate Transformation Matrix\" ${matrix}" >>/tmp/rotacionatouch.sh
+echo "xinput set-prop \"${installedTouch}\" \"Coordinate Transformation Matrix\" ${matrix}" >>/usr/share/X11/xorg.d/touchRotate.conf
 # Rotacionar Touchpad
 bash /tmp/rotacionatouch.sh
 # Remover script temporario
@@ -41,6 +42,7 @@ echo "Touch ok"
 activeDisplay=$(xrandr | grep " connected " | awk '{ print$1 }')
 # Rotacionar tela
 xrandr --output $(echo $activeDisplay) --mode 1920x1080 --rotate ${rotscreen}
+echo "xrandr --output $(echo $activeDisplay) --mode 1920x1080 --rotate ${rotscreen}" >>/usr/share/X11/xorg.d/touchRotate.conf
 echo "Tela ok"
 echo "done"
 sleep 3 && clear
