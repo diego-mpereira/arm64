@@ -43,3 +43,4 @@ activeDisplay=$(xrandr | grep " connected " | awk '{ print$1 }')
 xrandr --output $(echo $activeDisplay) --mode 1920x1080 --rotate ${rotscreen}
 echo "Tela ok"
 echo "done"
+sleep 3 && clear
