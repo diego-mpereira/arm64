@@ -42,7 +42,7 @@ echo "xinput set-prop \"${installedTouch}\" \"Coordinate Transformation Matrix\"
 # Rotacionar Touchpad
 bash /tmp/rotacionatouch.sh
 # Remover script temporario
-rm /tmp/rotacionatouch.sh
+#rm /tmp/rotacionatouch.sh
 echo "Touch ok"
 # Ler nome do monitor ativo
 activeDisplay=$(xrandr | grep " connected " | awk '{ print$1 }')
