@@ -1,5 +1,5 @@
 #!/bin/bash
-# * * * * * sleep 10; sh ~/monitoraRede.sh    <<<<<<<<<<<<<<< inserir no `crontab -e`
+# wget -O- https://raw.githubusercontent.com/diego-mpereira/arm64/main/monitoraRedeAuto.sh | bash
 echo "IP='api-order-sender.pedidos.vsd.appa'" >>~/monitoraRede.sh
 echo "ping -c1 $IP 2>/dev/null 1>/dev/null" >>~/monitoraRede.sh
 echo "if [ "$?" = 0 ]" >>~/monitoraRede.sh
