@@ -1,6 +1,6 @@
 #!/bin/bash
 # wget -O- https://raw.githubusercontent.com/diego-mpereira/arm64/main/monitoraRedeAuto.sh | bash
-echo "IP='api-order-sender.pedidos.vsd.appa'" >>~/monitoraRede.sh
+echo "IP='api-order-sender.pedidos.vsd.app'" >>~/monitoraRede.sh
 echo "ping -c1 $IP 2>/dev/null 1>/dev/null" >>~/monitoraRede.sh
 echo "if [ "$?" = 0 ]" >>~/monitoraRede.sh
 echo "then" >>~/monitoraRede.sh
